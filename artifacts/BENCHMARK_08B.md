@@ -1,12 +1,19 @@
-# SymbolicLight V1 0.8B Lightweight Benchmark
+# SymbolicLight V1 0.8B Lightweight Benchmark Notes
 
 Date: 2026-04-28
 
-This benchmark evaluates the released SymbolicLight V1 0.8B checkpoint in a lightweight, pretraining-oriented setting. It is not an instruction-following, MMLU, GPQA, coding-contest, or agent benchmark.
+These notes summarize local release-audit runs for the SymbolicLight V1 0.8B checkpoint.
+The checkpoint binary is not stored in this GitHub repository.
+To rerun these checks, first place the separately distributed cleaned checkpoint at `weights/pytorch/latest.pt`.
 
-## Artifact
+## Scope
 
-- Checkpoint: `weights/pytorch/latest.pt`
+This is a lightweight, pretraining-oriented release audit.
+It is not an instruction-following, MMLU, GPQA, coding-contest, agent, or SOTA benchmark.
+
+## Artifact Used Locally
+
+- Checkpoint path during local audit: `weights/pytorch/latest.pt`
 - Tokenizer: `tokenizer/sl_tokenizer.model`
 - Global step: `186000`
 - Parameters: `873,668,135`
@@ -15,7 +22,7 @@ This benchmark evaluates the released SymbolicLight V1 0.8B checkpoint in a ligh
 ## Held-Out PPL
 
 This run used an internal held-out memmap shard.
-The shard is not distributed with the public package, so this number should be read as a local release audit rather than a fully public benchmark.
+The shard is not distributed with the public GitHub repository, so this number should be read as a local release audit rather than a fully public benchmark.
 
 Command pattern:
 
@@ -41,33 +48,12 @@ Result:
 - Elapsed time: `45.43 s`
 - Teacher-forced throughput: `~1,443 tokens/s`
 
-Log: `artifacts/benchmark_08b_val128_ppl.log`
-
 ## Generation Smoke Benchmark
 
 This run used the same internal held-out memmap shard for the lightweight PPL component.
 The generation prompts are public, but the local PPL shard is not distributed.
 
-Command pattern:
-
-```powershell
-python -u src\eval_08.py `
-  --checkpoint_path weights\pytorch\latest.pt `
-  --tokenizer_path tokenizer\sl_tokenizer.model `
-  --data_bin <local-held-out-data-bin> `
-  --batch_size 1 `
-  --max_batches 16 `
-  --device cuda `
-  --allow_windows_cuda `
-  --generate `
-  --max_new_tokens 16 `
-  --temperature 0.6 `
-  --top_k 20 `
-  --repetition_penalty 1.1 `
-  --json
-```
-
-Result:
+Result summary:
 
 - Prompts: `8` English/code prompts
 - New tokens: `16` per prompt
@@ -81,9 +67,8 @@ Representative outputs:
 - `A good scientific explanation should be a good explanation of a phenomenon, but the explanation is not the only thing`
 - `The capital of France is Paris. The capital of France is the capital of the country.`
 
-The generation samples show basic continuation behavior but also factual weakness, e.g. the Earth-orbit prompt produced an incorrect continuation. This is consistent with the manuscript's framing of the 0.8B checkpoint as scale-up evidence rather than a quality claim.
-
-Log: `artifacts/benchmark_08b_val16_gen16.log`
+The generation samples show basic continuation behavior but also factual weakness, e.g. the Earth-orbit prompt produced an incorrect continuation.
+This is consistent with the manuscript's framing of the 0.8B checkpoint as scale-up evidence rather than a quality claim.
 
 ## Prompt-Level Sparsity Audit
 
@@ -96,14 +81,12 @@ Result:
 - Min block sparsity: `67.21%`
 - Max block sparsity: `96.40%`
 
-Machine-readable output: `artifacts/benchmark_08b_sparsity_prompts.json`
-
 ## Interpretation
 
 These results are suitable for an artifact/release note or a conservative paper appendix:
 
-- The checkpoint loads successfully and runs on CUDA.
-- The released tokenizer and checkpoint are compatible.
+- The checkpoint loaded successfully and ran on CUDA during local audit.
+- The released tokenizer and separately distributed checkpoint were compatible.
 - The model can perform short English/code continuation.
 - High activation sparsity is preserved in prompt-level inspection.
 - The validation PPL measured on the local held-out shard is substantially weaker than the 194M controlled result and should not be presented as a dense-baseline quality comparison.

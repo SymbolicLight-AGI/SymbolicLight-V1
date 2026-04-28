@@ -45,7 +45,7 @@ This stage supplies the main controlled evidence for the unified paper.
 
 ### 0.8B scale-up stage
 
-- public released checkpoint
+- separately distributed cleaned checkpoint
 - public tokenizer
 - public executable inference and smoke-training scripts
 - artifact-based reproducibility package

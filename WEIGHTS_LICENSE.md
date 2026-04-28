@@ -1,14 +1,16 @@
 # SymbolicLight V1 Weights License
 
-The released SymbolicLight V1 assets in this repository are licensed under the Apache License, Version 2.0, unless a file states otherwise.
+The released SymbolicLight V1 code package in this repository is licensed under the Apache License, Version 2.0, unless a file states otherwise.
 
 This applies to:
 
 - Source code under `src/`
 - Training scripts and inference scripts
 - Tokenizer assets under `tokenizer/`
-- The cleaned weights-only checkpoint at `weights/pytorch/latest.pt`
 - Public documentation and verification manifests in this repository
+
+The cleaned SymbolicLight V1 weights are not stored in this GitHub repository.
+When those weights are distributed separately by the project, they are intended to be released under Apache License, Version 2.0, unless the external hosting page states otherwise.
 
 ## Data Exclusion
 
@@ -20,9 +22,9 @@ Users who train or fine-tune the model are responsible for using corpora that th
 
 ## Checkpoint Scope
 
-The public checkpoint is a weights-only release.
-It does not include optimizer state, mixed-precision scaler state, data-loader state, local filesystem paths, or source-level data manifests.
+The separately distributed checkpoint should be a cleaned weights-only release.
+It should not include optimizer state, mixed-precision scaler state, data-loader state, local filesystem paths, or source-level data manifests.
 
 ## Citation
 
-If you use this model or code in research, please cite the accompanying SymbolicLight V1 paper and repository.
+If you use this model or code in research, please cite the accompanying SymbolicLight V1 paper and repository when citation metadata is available.
