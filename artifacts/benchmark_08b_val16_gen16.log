@@ -1,0 +1,131 @@
+[Load] Windows detected: using zip-storage checkpoint loader
+[Load] Loading floating-point weights as torch.float16
+[SymbolicLight V1] model initialized | parameters: 873.7M (0.874B)
+[Tokenizer] SLTokenizer loaded: tokenizer\sl_tokenizer.model
+
+============================================================
+ Generation Quality Test  (step 186000)
+ temperature=0.6 | top_k=20 | rep_penalty=1.1 | max_tokens=16
+============================================================
+
+────────────────────────────────────────────────────────────
+[1/8] Prompt: Artificial intelligence can improve society by
+────────────────────────────────────────────────────────────
+Artificial intelligence can improve society by providing new opportunities for the development of new technologies. The technology is now available to
+  (16 new tokens | 12.9 tok/s | 1.24s)
+
+────────────────────────────────────────────────────────────
+[2/8] Prompt: A good scientific explanation should
+────────────────────────────────────────────────────────────
+A good scientific explanation should be a good explanation of a phenomenon, but the explanation is not the only thing
+  (16 new tokens | 17.0 tok/s | 0.94s)
+
+────────────────────────────────────────────────────────────
+[3/8] Prompt: Once upon a time, in a small village,
+────────────────────────────────────────────────────────────
+Once upon a time, in a small village, a young man was asked, “What is your name?”
+“His
+  (16 new tokens | 16.4 tok/s | 0.98s)
+
+────────────────────────────────────────────────────────────
+[4/8] Prompt: def fibonacci(n):
+    
+────────────────────────────────────────────────────────────
+def fibonacci(n):
+        """
+        Return a sequence of
+  (16 new tokens | 16.6 tok/s | 0.97s)
+
+────────────────────────────────────────────────────────────
+[5/8] Prompt: The Earth completes one orbit around the Sun in about
+────────────────────────────────────────────────────────────
+The Earth completes one orbit around the Sun in about 3.9 billion years.
+
+### How to calculate the distance of a
+  (16 new tokens | 15.7 tok/s | 1.02s)
+
+────────────────────────────────────────────────────────────
+[6/8] Prompt: Photosynthesis is the process by which
+────────────────────────────────────────────────────────────
+Photosynthesis is the process by which plants convert sunlight into energy. It is a process that takes place in a plant
+  (16 new tokens | 14.7 tok/s | 1.09s)
+
+────────────────────────────────────────────────────────────
+[7/8] Prompt: In a world shaped by rapid scientific progress,
+────────────────────────────────────────────────────────────
+In a world shaped by rapid scientific progress, the world is becoming increasingly interconnected. The Internet and the Internet of Things (
+  (16 new tokens | 16.1 tok/s | 0.99s)
+
+────────────────────────────────────────────────────────────
+[8/8] Prompt: The capital of France is
+────────────────────────────────────────────────────────────
+The capital of France is Paris. The capital of France is the capital of the country.
+
+##
+  (16 new tokens | 15.9 tok/s | 1.01s)
+
+============================================================
+ Generation test complete: 8 prompts
+============================================================
+{
+  "checkpoint": "weights\\pytorch\\latest.pt",
+  "global_step": 186000,
+  "parameters": 873668135,
+  "split": "held-out val.bin",
+  "mean_ce": 3.118611454963684,
+  "ppl": 22.61495594678905,
+  "tokens": 8192,
+  "batches": 16,
+  "elapsed_sec": 5.71,
+  "sparsity": {},
+  "generation_results": [
+    {
+      "prompt": "Artificial intelligence can improve society by",
+      "generated": "Artificial intelligence can improve society by providing new opportunities for the development of new technologies. The technology is now available to",
+      "new_tokens": 16,
+      "tok_per_sec": 12.9
+    },
+    {
+      "prompt": "A good scientific explanation should",
+      "generated": "A good scientific explanation should be a good explanation of a phenomenon, but the explanation is not the only thing",
+      "new_tokens": 16,
+      "tok_per_sec": 17.0
+    },
+    {
+      "prompt": "Once upon a time, in a small village,",
+      "generated": "Once upon a time, in a small village, a young man was asked, “What is your name?”\n“His",
+      "new_tokens": 16,
+      "tok_per_sec": 16.4
+    },
+    {
+      "prompt": "def fibonacci(n):\n    ",
+      "generated": "def fibonacci(n):\n        \"\"\"\n        Return a sequence of",
+      "new_tokens": 16,
+      "tok_per_sec": 16.6
+    },
+    {
+      "prompt": "The Earth completes one orbit around the Sun in about",
+      "generated": "The Earth completes one orbit around the Sun in about 3.9 billion years.\n\n### How to calculate the distance of a",
+      "new_tokens": 16,
+      "tok_per_sec": 15.7
+    },
+    {
+      "prompt": "Photosynthesis is the process by which",
+      "generated": "Photosynthesis is the process by which plants convert sunlight into energy. It is a process that takes place in a plant",
+      "new_tokens": 16,
+      "tok_per_sec": 14.7
+    },
+    {
+      "prompt": "In a world shaped by rapid scientific progress,",
+      "generated": "In a world shaped by rapid scientific progress, the world is becoming increasingly interconnected. The Internet and the Internet of Things (",
+      "new_tokens": 16,
+      "tok_per_sec": 16.1
+    },
+    {
+      "prompt": "The capital of France is",
+      "generated": "The capital of France is Paris. The capital of France is the capital of the country.\n\n##",
+      "new_tokens": 16,
+      "tok_per_sec": 15.9
+    }
+  ]
+}

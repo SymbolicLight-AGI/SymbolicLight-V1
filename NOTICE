@@ -1,0 +1,9 @@
+SymbolicLight V1
+Copyright 2026 SymbolicLight contributors.
+
+This product includes source code, tokenizer assets, documentation, and cleaned model weights released under the Apache License, Version 2.0.
+
+The released checkpoint is a weights-only artifact.
+It excludes optimizer state, scaler state, data-loader state, local filesystem paths, raw training data, raw validation data, source-level dataset names, source identifiers, download URLs, and source-level manifests.
+
+The training and validation data used for the original research are not distributed with this package and are not licensed through this package.

@@ -1,0 +1,94 @@
+{
+  "package_scope": "historical_194m_run_registry",
+  "model_name": "SymbolicLight V1",
+  "intended_use": "Public registry for the main 194M experimental narrative absorbed from earlier DualPath-style release materials.",
+  "main_runs": [
+    {
+      "run_name": "snn_auxce_s123",
+      "parameters_text": "194M",
+      "training_variant": "AuxCE",
+      "seed": 123,
+      "training_tokens_text": "3B bilingual tokens",
+      "val_ppl": 8.91,
+      "paper_reference": "Main 194M validation table"
+    },
+    {
+      "run_name": "snn_auxce_s456",
+      "parameters_text": "194M",
+      "training_variant": "AuxCE",
+      "seed": 456,
+      "training_tokens_text": "3B bilingual tokens",
+      "val_ppl": 8.88,
+      "paper_reference": "Main 194M validation table"
+    },
+    {
+      "run_name": "snn_noauxce_s42",
+      "parameters_text": "194M",
+      "training_variant": "noAuxCE",
+      "seed": 42,
+      "training_tokens_text": "3B bilingual tokens",
+      "val_ppl": 8.9,
+      "paper_reference": "Main 194M validation table"
+    },
+    {
+      "run_name": "snn_noauxce_s123",
+      "parameters_text": "194M",
+      "training_variant": "noAuxCE",
+      "seed": 123,
+      "training_tokens_text": "3B bilingual tokens",
+      "val_ppl": 8.93,
+      "paper_reference": "Main 194M validation table"
+    }
+  ],
+  "dense_baselines": [
+    {
+      "run_name": "gpt2_124m",
+      "parameters_text": "124M",
+      "training_variant": "dense baseline",
+      "seed": null,
+      "val_ppl": 8.96
+    },
+    {
+      "run_name": "gpt2_201m",
+      "parameters_text": "201M",
+      "training_variant": "dense baseline",
+      "seed": null,
+      "val_ppl": 8.27
+    }
+  ],
+  "ablation_runs": [
+    {
+      "run_name": "ablation_static_prior",
+      "parameters_text": "185M",
+      "training_variant": "0.5B token ablation",
+      "seed": 42,
+      "val_ppl": 21.26
+    },
+    {
+      "run_name": "ablation_no_attn",
+      "parameters_text": "173M",
+      "training_variant": "0.5B token ablation",
+      "seed": 42,
+      "val_ppl": 38.56
+    },
+    {
+      "run_name": "ablation_decay_only",
+      "parameters_text": "164M",
+      "training_variant": "0.5B token ablation",
+      "seed": 42,
+      "val_ppl": 25.27
+    },
+    {
+      "run_name": "ablation_topk_mask",
+      "parameters_text": "194M",
+      "training_variant": "0.5B token ablation",
+      "seed": 42,
+      "val_ppl": 43.88
+    }
+  ],
+  "notes": [
+    "This file preserves the historical 194M release narrative without recreating the old DualPath repository layout.",
+    "The current public package does not claim that all historical checkpoints listed here are publicly redistributed from this repository.",
+    "The current reproducibility boundary is still governed by REPRODUCIBILITY.md and the public artifacts actually shipped in this package."
+  ]
+}

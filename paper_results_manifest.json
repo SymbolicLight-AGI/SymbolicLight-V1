@@ -1,0 +1,77 @@
+{
+  "package_name": "SymbolicLight V1 Open Package",
+  "created_utc_date": "2026-04-28",
+  "reproducibility_scope": "artifact_based",
+  "public_results": [
+    {
+      "id": "historical_194m_run_registry",
+      "description": "Public registry of the four main 194M runs, selected dense baselines, and selected ablation checkpoints used to preserve the historical DualPath experimental narrative.",
+      "status": "publicly_inspectable_but_not_fully_replayable",
+      "entrypoint": "train_runs_194m.json",
+      "artifacts": [
+        "train_runs_194m.json",
+        "docs/194m_training_story.md",
+        "docs/model_lineage.md"
+      ],
+      "expected_properties": {
+        "main_run_count": 4,
+        "main_val_ppl_range_text": "8.88-8.93",
+        "historical_scope": "194M main study plus selected baselines and ablations"
+      }
+    },
+    {
+      "id": "checkpoint_generation_smoke",
+      "description": "Public 0.8B checkpoint generation smoke test on the released checkpoint and tokenizer.",
+      "status": "publicly_reproducible",
+      "entrypoint": "src/eval_08.py",
+      "command": "python -u src\\eval_08.py --checkpoint_path weights\\pytorch\\latest.pt --tokenizer_path tokenizer\\sl_tokenizer.model --generate_only --max_new_tokens 4 --temperature 0.6 --top_k 20 --device cuda --allow_windows_cuda",
+      "artifacts": [
+        "artifacts/generation_smoke_test.log",
+        "artifacts/checkpoint_metadata_summary.json",
+        "CHECKSUMS_SHA256.json"
+      ],
+      "expected_properties": {
+        "exit_code": 0,
+        "checkpoint_global_step": 186000,
+        "parameter_count_text": "873.7M (0.874B)",
+        "default_prompt_count": 8
+      }
+    },
+    {
+      "id": "train_script_smoke",
+      "description": "Minimal training-loop smoke test using the built-in smoke dataset and a tiny model configuration.",
+      "status": "publicly_reproducible",
+      "entrypoint": "src/train_base.py",
+      "command": "python -u src\\train_base.py --dataset smoke --total_tokens 32 --batch_size 1 --grad_accum 1 --max_seq_len 16 --vocab_size 57344 --embed_dim 64 --n_layers 1 --n_heads 2 --head_dim 32 --intermediate_dim 128 --sparse_attn_window 16 --warmup_steps 1 --lr 1e-4 --save_every 1000 --keep_checkpoints 1 --save_dir artifacts\\tmp_train_smoke --log_every 1 --num_workers 0 --no_fp16 --no_grad_checkpoint",
+      "artifacts": [
+        "artifacts/train_smoke_test.log"
+      ],
+      "expected_properties": {
+        "exit_code": 0,
+        "total_steps": 2,
+        "seed": 42,
+        "ephemeral_output": "artifacts/tmp_train_smoke is regenerated locally and is not included in the release package"
+      }
+    }
+  ],
+  "non_public_paper_results": [
+    {
+      "id": "full_pretraining_tables",
+      "description": "Main pre-training and held-out evaluation tables tied to the original non-public corpus mixture and shard layout.",
+      "status": "not_publicly_reproducible",
+      "reason": "Raw data, source-level manifest, and validation shard mapping are not public."
+    },
+    {
+      "id": "historical_dualpath_layout_reconstruction",
+      "description": "Reconstruction of the older DualPath-style public repository layout with all historical checkpoints, eval scripts, and raw result folders exactly as originally described.",
+      "status": "not_reconstructed_in_this_package",
+      "reason": "The current release intentionally keeps one unified public root to avoid version drift and reproducibility mismatches."
+    },
+    {
+      "id": "source_level_data_reconstruction",
+      "description": "Exact reconstruction of the training corpus composition at the source level.",
+      "status": "not_publicly_reproducible",
+      "reason": "The release exposes only aggregate-domain protocol information, not source-level identifiers."
+    }
+  ]
+}

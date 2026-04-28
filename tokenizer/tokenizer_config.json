@@ -1,0 +1,68 @@
+{
+  "tokenizer_type": "SymbolicLight-BPE",
+  "model_file": "sl_tokenizer.model",
+  "vocab_size": 55301,
+  "active_vocab_size": 55301,
+  "contract_version": "snn_tokenizer_v3",
+  "token_id_layout": "prefix_active_tail_reserved",
+  "structural_vocab_size": 57344,
+  "active_vocab_candidates": [
+    53248,
+    55296,
+    55301
+  ],
+  "reserved_vocab_size": 2043,
+  "indent_tokens": {
+    "  ": 55296,
+    "    ": 55297,
+    "        ": 55298,
+    "\t": 55299,
+    "      ": 55300
+  },
+  "special_token_ids": {
+    "pad_token_id": 0,
+    "bos_token_id": 1,
+    "eos_token_id": 2,
+    "unk_token_id": 3
+  },
+  "special_tokens": {
+    "pad_token": "[PAD]",
+    "bos_token": "[BOS]",
+    "eos_token": "[EOS]",
+    "unk_token": "[UNK]"
+  },
+  "sl_special_tokens": [
+    "<|stream|>",
+    "<|vision|>",
+    "<|endofvision|>",
+    "<|audio|>",
+    "<|endofaudio|>",
+    "<|think|>",
+    "<|endofthink|>",
+    "<|spike|>",
+    "<|tool_call|>",
+    "<|endoftool_call|>",
+    "<|system|>",
+    "<|endofsystem|>",
+    "<|user|>",
+    "<|endofuser|>",
+    "<|assistant|>",
+    "<|endofassistant|>"
+  ],
+  "training": {
+    "model_type": "bpe",
+    "normalization_rule_name": "identity",
+    "byte_fallback": true,
+    "split_by_unicode_script": true,
+    "split_digits": false,
+    "max_sentencepiece_length": 24,
+    "character_coverage": 0.9999,
+    "input_sentence_size": 8000000,
+    "num_threads": 64
+  },
+  "snn_rationale": {
+    "coarse_piece_bias": "Longer subwords = fewer tokens = fewer LIF timesteps",
+    "punctuation_policy": "Preserve Chinese full-width punctuation",
+    "digit_policy": "Do not split digits into single-character pieces by default"
+  }
+}

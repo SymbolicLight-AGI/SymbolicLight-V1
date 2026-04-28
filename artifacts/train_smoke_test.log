@@ -1,0 +1,57 @@
+[Net] No proxy detected. Set HF_ENDPOINT manually if your environment requires a mirror.
+[Tokenizer] [OK] SL tokenizer: <repo-root>\tokenizer\sl_tokenizer.model
+
+============================================================
+ SymbolicLight 0.8B Training
+ Time: 2026-04-28 01:12:27
+============================================================
+Config: {'data_bin': None, 'tokenizer_path': '<repo-root>\\tokenizer\\sl_tokenizer.model', 'curriculum_phase1_ratio': 0.2, 'curriculum_phase2_ratio': 0.65, 'curriculum_preset': 'default', 'max_oversample': 5.0, 'allow_source_restarts': False, 'source_epoch_warn': 0.8, 'data_dir': './data/private_corpus', 'dataset': 'smoke', 'total_tokens': 32, 'vocab_size': 57344, 'embed_dim': 64, 'n_layers': 1, 'n_heads': 2, 'head_dim': 32, 'intermediate_dim': 128, 'max_seq_len': 16, 'batch_size': 1, 'grad_accum': 1, 'lr': 0.0001, 'warmup_steps': 1, 'weight_decay': 0.1, 'max_grad_norm': 1.0, 'fp16': False, 'grad_checkpoint': False, 'num_workers': 0, 'save_dir': 'artifacts\\tmp_train_smoke', 'save_every': 1000, 'log_every': 1, 'keep_checkpoints': 1, 'resume': False, 'seed': 42, 'sparse_attn_window': 16, 'disable_sparse_attn': False, 'disable_dynamic_prior': False, 'use_topk_mask': False, 'topk_sparsity': 0.89, 'dry_run': False}
+[DEBUG] Rank ?: entering train()
+[DEBUG] Rank 0: DDP init done, device=cuda:0
+
+============================================================
+ SymbolicLight V1 - 0.8B Training
+============================================================
+Device: cuda:0
+World size: 1 GPU(s)
+Model profile: ~0.8B | d_model=64, layers=1, heads=2, head_dim=32, ffn=128
+GPU: NVIDIA GeForce RTX 2080 Ti (23.6 GB)
+Seed: 42
+[DEBUG] Creating model...
+[SymbolicLight V1] model initialized | parameters: 8.3M (0.008B)
+<python-env>\site-packages\torch\nn\modules\module.py:1326: UserWarning: expandable_segments not supported on this platform (Triggered internally at <pytorch-build>\CUDAAllocatorConfig.h:28.)
+  return t.to(
+[DEBUG] Model created and moved to cuda:0
+[DEBUG] Creating dataset...
+[DEBUG] Dataset handle prepared
+
+[Training Plan]
+  Total tokens:       0.0B
+  Tokens per step:    16
+  Total steps:        2
+  Per-GPU batch:      1
+  Grad accum:         1
+  Effective batch:    1
+  Seq len:            16
+  Warmup:             1 steps
+  LR:                 0.0001
+  DataLoader:         workers=0, pin_memory=False
+[Memory] Gradient checkpointing: OFF
+[Memory] Mixed Precision: OFF (FP32)
+[DEBUG] Dataset created
+
+Starting training...
+
+Step      1/2 | Loss: 10.9915 | PPL:  59368.6 | LR: 1.00e-04 | Sparsity: 90.0% | Tok/s: 28 | Progress: 100.0% | ETA: 0.0h
+
+============================================================
+ Training Complete!
+============================================================
+Total steps:     2
+Total tokens:    0.00B
+Total time:      0.0 hours
+Avg tok/s:       28
+Final avg loss:  10.9856
+Final PPL:       59015.66
+  [Checkpoint] Saved step 2 (tokens: 0.00B, v_mem: saved)
+Log saved to artifacts\tmp_train_smoke\train_log.json

@@ -1,0 +1,17 @@
+[
+  {
+    "relative_path": "weights/pytorch/latest.pt",
+    "sha256": "8A3B58523BC46CEC0C71E3CA601B22476F05E1498EF39F9668B88A587A8E94DC",
+    "bytes": 3500567393
+  },
+  {
+    "relative_path": "tokenizer/sl_tokenizer.model",
+    "sha256": "1A597421B62071B8119EE9EAA0A8E512E355D7B8018512E15674549906295147",
+    "bytes": 869733
+  },
+  {
+    "relative_path": "tokenizer/tokenizer_config.json",
+    "sha256": "7842486BEBAF043F0562F7002829D2710356AB4632094261EAA16A1E15BB67EB",
+    "bytes": 1655
+  }
+]
