@@ -1,0 +1,19 @@
+# Model weights are hosted separately.
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.bin
+*.gguf
+*.onnx
+weights/
+checkpoints/
+
+# Local Python and editor state.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+Thumbs.db

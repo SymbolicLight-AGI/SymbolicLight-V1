@@ -1,0 +1,15 @@
+SymbolicLight V1
+Copyright 2026 Foshan SymbolicLight Technology Co., Ltd. (佛山市桐光科技有限公司)
+
+Author: Ting Liu (刘挺)
+Affiliation: SymbolicLight Research, Foshan SymbolicLight Technology Co., Ltd.
+Contact: research@symboliclight.com
+
+This is an inference-only source release. It includes model definitions,
+minimal inference utilities, tokenizer runtime assets, documentation, and
+integrity metadata. It does not include the private training
+pipeline, corpus recipes, preprocessing code, or experiment-launch scripts.
+
+Separately hosted model weights are governed by the license stated on their
+hosting page. Training and validation data are not distributed or licensed by
+this repository.
